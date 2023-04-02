@@ -1,9 +1,16 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
+import {Navigate} from 'react-router-dom'
 import { formatDate } from "../Utils/helper";
 import AnswerModal from "./AnswerModal";
 
 const Dashboard = ({ questions, authedUser, users }) => {
+
+
+  if( !questions || !authedUser || !users){
+    return <Navigate to="/login"/>
+  }
+
   // filter questions unanswered
   const questionUnaswerd = (questions) =>
     !questions.optionOne.votes.includes(authedUser.id) &&

@@ -7,9 +7,9 @@ const Card = ({ question, author, formatDate }) => {
     <Fragment>
       <Link to={"questions/" + question.id}>
         <li className="grid-item">
-          {console.log(author)}
+          {console.log(question.id)}
           <img src= {author?.avatarURL} alt="author" className="avatar"></img>
-          {/* <span>Author: {author.id}</span> */}
+          <span>Author: {author.id}</span>
           <p className="center">Option 1: {question.optionOne.text}</p>
           <p className="center">Option 2: {question.optionTwo.text}</p>
           <div>{formatDate(question.timestamp)}</div>
