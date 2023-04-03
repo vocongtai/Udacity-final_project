@@ -202,7 +202,7 @@ input[type=text] ,input[type=password]{
 }
 
 .bar {
-  width: 300px;
+  width: 400px;
   border: 1px solid;
   border-radius: 5px;
   position: relative;

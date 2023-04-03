@@ -97,7 +97,7 @@ const PollsDetail = ({ dispatch, question, author, authedUser }) => {
                     : countPercent("optionOne", question)}
                   %
                 </div>
-                <div className="progress-text ">{question.optionOne.text}</div>
+                <div className="progress-text ">{question.optionOne.text}. Votes: {question.optionOne.votes.length}</div>
               </div>
             )}
           </div>
@@ -124,7 +124,7 @@ const PollsDetail = ({ dispatch, question, author, authedUser }) => {
                     : countPercent("optionTwo", question)}
                   %
                 </div>
-                <div className="progress-text ">{question.optionTwo.text}</div>
+                <div className="progress-text ">{question.optionTwo.text}.Votes: {question.optionTwo.votes.length}</div>
               </div>
             )}
           </div>
