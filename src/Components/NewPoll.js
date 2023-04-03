@@ -35,23 +35,25 @@ const NewPoll = ({ dispatch,questions }) => {
     <div>
       <h1 className="center">New Poll</h1>
       <form onSubmit={handleSubmit} className="new-poll">
-        <label htmlFor="firstOption">First Option: </label>
+        <label htmlFor="firstOption" data-testid="firstOption-label">First Option: </label>
         <input
           type="text"
           id="firstOption"
           onChange={firstOptionHandle}
           placeholder="First Option..."
           value={firstOption}
+          data-testid="firstOption-input"
         />
-        <label htmlFor="secondOption">Second Option: </label>
+        <label htmlFor="secondOption" data-testid="secondOption-label">Second Option: </label>
         <input
           type="text"
           id="secondOption"
           onChange={secondOptionHandle}
           placeholder="Second Option..."
           value={secondOption}
+          data-testid="secondOption-input"
         />
-        <button className="btn-submit" disabled={firstOption ==="" && secondOption === "" }>Submit</button>
+        <button className="btn-submit" data-testid="addQuestion-btn" disabled={firstOption ==="" && secondOption === "" }>Submit</button>
       </form>
     </div>
   );

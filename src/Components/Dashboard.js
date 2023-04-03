@@ -31,6 +31,7 @@ const Dashboard = ({ questions, authedUser, users }) => {
 
   return (
     <Fragment>
+      <h1 className="center" data-testid="dashboard-header">Dashboard</h1>
       <AnswerModal
         questions={questions}
         listQuestion={questionUnaswerd}

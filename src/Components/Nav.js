@@ -27,7 +27,7 @@ const Nav = ({ dispatch, authedUserID }) => {
         </li>
       </ul>
       <div className="logout-container">
-        <span className="logout-user">{authedUserID}</span>
+        <span className="logout-user" data-testid="authedUser">{authedUserID}</span>
         <button onClick={logOutHandle} className="logout-btn">
           Log out
         </button>

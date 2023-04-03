@@ -36,9 +36,9 @@ const Login = ({ dispatch, userLogin }) => {
 
   return (
     <div className="login-container">
-        <h1 className="center">Welcome to Poll Page App! </h1>
+        <h1 className="center" data-testid="login-header">Welcome to Poll Page App! </h1>
       <form onSubmit={loginHandle} className="login-form">
-        <label className="center">Username: </label>
+        <label className="center" data-testid="userName-label">Username: </label>
         <input
           type="text"
           placeholder="Input Username ...."
@@ -46,8 +46,9 @@ const Login = ({ dispatch, userLogin }) => {
           id="userName"
           onChange={userNameHandle}
           value={userName}
+          data-testid="username-input"
         />
-                <label className="center">Password: </label>
+        <label className="center" data-testid="password-label">Password: </label>
         <input
           type="password"
           placeholder="***"
@@ -55,8 +56,9 @@ const Login = ({ dispatch, userLogin }) => {
           id="password"
           onChange={passwordHandle}
           value={passWord}
+          data-testid="password-input"
         />
-        <button className="btn-login">Login</button>
+        <button className="btn-login" data-testid="login-btn">Login</button>
       </form>
     </div>
   );
