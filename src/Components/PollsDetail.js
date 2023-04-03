@@ -1,7 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams,useLocation} from "react-router-dom";
 import { handleAddAnswerQuestion } from "../Actions/questions";
+
+
+const withRouter = (Component) => {
+  const ComponentWithRouterProp = (props) => {
+    let location = useLocation();
+    let navigate = useNavigate();
+    let params = useParams();
+    return <Component {...props} router={{ location, navigate, params }} />;
+  };
+
+  return ComponentWithRouterProp;
+};
+
+
 
 const PollsDetail = ({ dispatch, question, author, authedUser }) => {
 
@@ -121,13 +135,14 @@ const PollsDetail = ({ dispatch, question, author, authedUser }) => {
 };
 
 //mapStateToProps func (redux binding)
-const mapStateToProps = ({ authedUser, users, questions }) => {
+const mapStateToProps = ({ authedUser, users, questions },props) => {
   try {
-    // const { id } = props.match.params;
+    const { id } = props.router.params;
     const question = Object.values(questions).find(
-      (question) => question.id === useParams().id
+      (question) => question.id === id
     );
 
+    console.log(typeof question.author);
     const author = Object.values(users).find(
       (user) => user.id === question.author
     );
@@ -137,4 +152,4 @@ const mapStateToProps = ({ authedUser, users, questions }) => {
   }
 };
 
-export default connect(mapStateToProps)(PollsDetail);
+export default withRouter(connect(mapStateToProps)(PollsDetail));

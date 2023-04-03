@@ -18,8 +18,8 @@ export default function users(state = {}, action) {
       return {
         ...state,
         [action.author]: {
-          ...state[action.author.id],
-          questions: state[action.author.id].questions.concat(action.qid),
+          ...state[action.author],
+          questions: state[action.author].questions.concat(action.qid),
         },
       };
 

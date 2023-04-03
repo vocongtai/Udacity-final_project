@@ -9,7 +9,9 @@ export function receiverUsers(users) {
   };
 }
 
-export function addQuestionUser({author, id}) {
+export function addQuestionUser(question) {
+  const {author,id}=question;
+  console.log(typeof author);
   return {
       type: ADD_QUESTION_USER,
       author,

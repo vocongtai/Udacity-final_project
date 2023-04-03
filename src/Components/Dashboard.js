@@ -11,18 +11,23 @@ const Dashboard = ({ questions, authedUser, users }) => {
     return <Navigate to="/login"/>
   }
 
+    console.log(questions);
+
   // filter questions unanswered
-  const questionUnaswerd = (questions) =>
-    !questions.optionOne.votes.includes(authedUser.id) &&
-    !questions.optionTwo.votes.includes(authedUser.id);
+  const questionUnaswerd = (question) =>
+    !question.optionOne.votes.includes(authedUser.id) &&
+    !question.optionTwo.votes.includes(authedUser.id);
 
   //filter question answered
-  const questionAswerd = (questions) =>
-    questions.optionOne.votes.includes(authedUser.id) ||
-    questions.optionTwo.votes.includes(authedUser.id);
+  const questionAswerd = (question) =>
+    question.optionOne.votes.includes(authedUser.id) ||
+    question.optionTwo.votes.includes(authedUser.id);
 
   const titleNewQuestions = "New Questions";
   const titleAnsweredQuestion = "Answered Questions";
+
+  console.log("question unanswer: ", questions.filter(questionUnaswerd));
+
 
   return (
     <Fragment>

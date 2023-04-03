@@ -148,7 +148,7 @@ let users = {
     return {
       id: generateUID(),
       timestamp: Date.now(),
-      author,
+      author:author.id,
       optionOne: {
         votes: [],
         text: optionOneText,
