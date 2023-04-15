@@ -1,17 +1,16 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
-import {Navigate} from 'react-router-dom'
+// import {Navigate} from 'react-router-dom'
 import { formatDate } from "../Utils/helper";
 import AnswerModal from "./AnswerModal";
 
 const Dashboard = ({ questions, authedUser, users }) => {
 
 
-  if( !questions || !authedUser || !users){
-    return <Navigate to="/login"/>
-  }
+  // if( !questions || !authedUser || !users){
+  //   return <Navigate to="/login"/>
+  // }
 
-    console.log(questions);
 
   // filter questions unanswered
   const questionUnaswerd = (question) =>
@@ -26,7 +25,6 @@ const Dashboard = ({ questions, authedUser, users }) => {
   const titleNewQuestions = "New Questions";
   const titleAnsweredQuestion = "Answered Questions";
 
-  console.log("question unanswer: ", questions.filter(questionUnaswerd));
 
 
   return (

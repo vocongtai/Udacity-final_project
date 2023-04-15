@@ -24,7 +24,7 @@ function App({ dispatch, userLogin }) {
       {/* <PollsDetail match={{params:{id:"8xf0y6ziyjabvozdd253nd"}}}/> */}
       <Routes>
         <Route path="/login" exact element={<Login/>}></Route>
-        <Route path="/" element={<Dashboard />}></Route>
+        <Route path="/" element={ <PrivateSecurity><Dashboard /></PrivateSecurity>}></Route>
         <Route path="/leaderboard" element={<PrivateSecurity><LeaderBoard /></PrivateSecurity>}></Route>
         <Route path="/questions/:id" element={ <PrivateSecurity><PollsDetail /></PrivateSecurity>}></Route>
         <Route path="/new" element={ <PrivateSecurity><NewPoll /></PrivateSecurity>}></Route>

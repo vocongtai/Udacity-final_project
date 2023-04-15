@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Navigate, useNavigate, useParams,useLocation} from "react-router-dom";
 import { handleAddAnswerQuestion } from "../Actions/questions";
@@ -21,10 +21,19 @@ const PollsDetail = ({ dispatch, question, author, authedUser }) => {
 
   const navigate =useNavigate();
 
+    useEffect (()=>{  
+
+      if(!author || !question || !authedUser){
+        return <Navigate to="/404"/>
+
+      }
+
+    },[author,question,authedUser,navigate])
+
   //check if authedUser is not set then return 404 page
-  if (!author || !question || !authedUser) {
-    return <Navigate to="/404" />;
-  }
+  // if (!author || !question || !authedUser) {
+  //   return <Navigate to="/404" />;
+  // }
 
   //ishasVoted
   const isHasVoted =
@@ -142,7 +151,6 @@ const mapStateToProps = ({ authedUser, users, questions },props) => {
       (question) => question.id === id
     );
 
-    console.log(typeof question.author);
     const author = Object.values(users).find(
       (user) => user.id === question.author
     );

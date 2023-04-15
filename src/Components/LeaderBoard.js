@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 
 const Leaderboard = ({ users }) => {
-  console.log(users);
   return (
     <div className="table-leader">
       <table>
